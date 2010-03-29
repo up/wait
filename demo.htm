@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Javascript 'Wait Animation'</title>
+	<script type="text/javascript" src="wait.js"></script>
+	<script type="text/javascript">
+	/*<![CDATA[*/ 
+	window.onload = function() {
+		wait.init('foobar');
+		// wait.init('foobar', 250);
+		// wait.init('foobar', 350, 'green');
+	};
+	var changeColor = function() {
+		var wa = document.getElementById('foobar');
+		var se = document.getElementById('colors');
+		wa.style.backgroundColor = se.options[se.selectedIndex].value
+	}
+	/*]]>*/ 
+	</script>
+	
+	<style type="text/css">
+	body {
+		font-family: Georgia;
+	}
+	#content {
+		text-align: center;
+		width: 400px;
+		margin: 50px auto;
+	}
+	p, select {
+		margin-top: 30px;
+	}
+	li {
+		margin-bottom: 10px;
+	}
+	span {
+		display: block;
+		font-style: italic;
+		color: #666666;
+	}
+	#foobar {
+		margin: 10px auto;
+		background: #283232; /* dots default color */
+	}
+	fieldset {
+		border: none;
+	}	
+	</style>
+</head>
+<body>
+	
+	<div id="content">
+		<h2>Customizable Javascript<br/> 'Wait Animation'</h2>
+		<div id="foobar" style="visibility:hidden"></div>
+		<form action=".">
+			<fieldset>
+				<select id="colors" onchange="changeColor()">
+					<option value="#283232">darkgray</option>
+					<option value="#00e587">green</option>
+					<option value="#00b1ff">blue</option>
+					<option value="#c409d0">purple</option>
+					<option value="#ff3a27">red</option>
+					<option value="#ffbf00">orange</option>
+					<option value="#cae500">yellow green</option>
+				</select>
+			</fieldset>
+		</form>
+		<p><em>wait.init( id, [duration, [bgcolor]]);</em></p>
+		<ul>
+			<li>
+				wait.init('foobar');
+				<span>[duration: 500 (default), bgcolor: css rule]</span>
+			</li>
+			<li>
+				wait.init('foobar', 250);
+				<span>[bgcolor: css rule]</span>
+			</li>
+			<li>wait.init('foobar', 350, 'green');</li>
+		</ul>
+	</div>
+
+</body>
+</html>
